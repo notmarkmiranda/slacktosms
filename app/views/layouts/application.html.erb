@@ -27,18 +27,11 @@
   </head>
 
   <body>
-    <div class="container">
-      <nav class="row">
-        <div class="twelve columns">
-          <% if user_signed_in? %>
-            <%= button_to "Sign Out", logout_path, method: :delete, class: "button button-primary" %>
-          <% else %>
-            <%= link_to "Sign Up", "#", class: "button" %>
-            <%= link_to "Sign In", new_user_session_path, class: "button" %>
-          <% end %>
-        </div>
-      </nav>
+    <% unless current_page?(root_path) %>
+      <%= render 'layouts/navbar' %>
+    <% end %>
 
+    <div class="container">
       <%= yield %>
     </div>
   </body>
