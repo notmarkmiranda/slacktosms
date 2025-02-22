@@ -27,11 +27,10 @@
   </head>
 
   <body>
-    <% unless current_page?(root_path) %>
-      <%= render 'layouts/navbar' %>
-    <% end %>
-
     <div class="container">
+      <% unless current_page?(root_path) %>
+        <%= render 'layouts/navbar' %>
+      <% end %>
       <%= yield %>
     </div>
   </body>
