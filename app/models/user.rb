@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :phone_number, presence: true, uniqueness: true
+  validates :phone_number, presence: true, uniqueness: true, format: { with: /\A\+1\d{10}\z/, message: "must be a valid US phone number" }
 
   def generate_verification_code
     self.verification_code = rand(100_000..999_999).to_s

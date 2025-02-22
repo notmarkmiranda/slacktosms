@@ -7,8 +7,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(phone_number: params[:phone_number])
-    if user.present?
+    user = User.find_or_create_by(phone_number: params[:phone_number])
+    if user&.valid?
       user.generate_verification_code
       puts "*" * 100
       puts user.verification_code

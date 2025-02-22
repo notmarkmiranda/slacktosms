@@ -30,5 +30,6 @@ group :development do
 end
 
 group :test do
+  gem "pry"
   gem "simplecov", require: false
 end
