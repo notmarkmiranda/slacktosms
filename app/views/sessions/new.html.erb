@@ -1,0 +1,11 @@
+<h1>Sign In</h1>
+
+<%= form_with url: login_path, method: :post, local: true do |form| %>
+  <div class="row">
+    <div class="three columns">
+      <%= form.label :phone_number, "Phone Number" %>
+      <%= form.telephone_field :phone_number, class: "u-full-width", placeholder: "Enter your phone number" %>
+    </div>
+  </div>
+  <%= form.submit "Submit", class: "button-primary" %>
+<% end %>

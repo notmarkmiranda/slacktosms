@@ -1,0 +1,11 @@
+<h1>Verify Your Account</h1>
+
+<%= form_with url: verify_user_path(id: @user.id), method: :post, local: true do |form| %>
+  <div class="row">
+    <div class="three columns">
+      <%= form.label :verification_code, "Verification Code" %>
+      <%= form.text_field :verification_code, class: "u-full-width", placeholder: "Enter your verification code" %>
+    </div>
+  </div>
+  <%= form.submit "Verify", class: "button-primary" %>
+<% end %>
