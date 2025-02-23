@@ -1,1 +1,9 @@
 <h1>Dashboard</h1>
+
+<%= link_to "Sign in with Slack",
+  "https://slack.com/oauth/v2/authorize
+    ?client_id=#{ENV.fetch("SLACK_CLIENT_ID")}
+    &user_scope=channels:history,channels:read,groups:history,groups:read,im:history,mpim:history,mpim:read,users:read,chat:write
+    &redirect_uri=#{ENV.fetch("SLACK_REDIRECT_URI")}
+    &state=asdffdsa"
+%>

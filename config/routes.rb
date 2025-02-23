@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get "verify/:token" => "sessions#verify", as: :verify_token
   post "verify/:id" => "sessions#verify_user", as: :verify_user
   delete "logout" => "sessions#destroy"
+
+  get "slack/oauth/callback" => "oauth#callback"
 end
