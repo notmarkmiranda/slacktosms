@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :slack_connections
+
   validates :phone_number, presence: true, uniqueness: true, format: { with: /\A\+1\d{10}\z/, message: "must be a valid US phone number" }
 
   def generate_verification_code

@@ -12,4 +12,19 @@ class SlackService
     })
     response.parsed_response
   end
+
+  def self.channels(team_id, access_token)
+    response = get(
+      "/conversations.list",
+      query: {
+        team_id: team_id,
+        types: "public_channel"
+        # types: "public_channel,private_channel,mpim,im"
+      },
+      headers: {
+        "Authorization" => "Bearer #{access_token}"
+      }
+    )
+    response.parsed_response["channels"]
+  end
 end

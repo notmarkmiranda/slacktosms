@@ -1,9 +1,18 @@
 <h1>Dashboard</h1>
 
-<%= link_to "Sign in with Slack",
-  "https://slack.com/oauth/v2/authorize
-    ?client_id=#{ENV.fetch("SLACK_CLIENT_ID")}
-    &user_scope=channels:history,channels:read,groups:history,groups:read,im:history,mpim:history,mpim:read,users:read,chat:write
-    &redirect_uri=#{ENV.fetch("SLACK_REDIRECT_URI")}
-    &state=asdffdsa"
-%>
+<%= link_to "Sign in with Slack", "https://slack.com/oauth/v2/authorize?client_id=#{ENV.fetch("SLACK_CLIENT_ID")}&user_scope=channels:history,channels:read,groups:history,groups:read,im:history,im:read,mpim:history,mpim:read,users:read,chat:write&redirect_uri=#{ENV.fetch("SLACK_REDIRECT_URI")}&state=asdffdsa" %>
+
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th>Team Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user.slack_connections.each do |slack_connection| %>
+      <tr>
+        <td><%= link_to slack_connection.team_name, slack_connection_path(slack_connection) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

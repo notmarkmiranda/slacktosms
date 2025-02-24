@@ -1,5 +1,6 @@
 class SlackConnection < ApplicationRecord
   belongs_to :user
+  has_many :subscriptions, dependent: :destroy
 
   validates :slack_user_id, presence: true
   validates :access_token, presence: true

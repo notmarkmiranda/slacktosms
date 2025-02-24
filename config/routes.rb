@@ -13,4 +13,8 @@ Rails.application.routes.draw do
   delete "logout" => "sessions#destroy"
 
   get "slack/oauth/callback" => "oauth#callback"
+
+  resources :slack_connections, only: [ :show ] do
+    post :create_subscriptions, on: :member
+  end
 end

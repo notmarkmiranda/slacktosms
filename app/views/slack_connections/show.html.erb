@@ -1,0 +1,25 @@
+<h1><%= @slack_connection.team_name %></h1>
+
+<%= form_with url: create_subscriptions_slack_connection_path(@slack_connection) do %>
+  <table class="u-full-width">
+    <thead>
+      <tr>
+        <th>Channel Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @channels.each do |channel| %>
+        <tr>
+          <td class="flex">
+            <label>
+              <%= check_box_tag "channel_ids[]", channel["id"], @existing_subscriptions.include?(channel["id"]) %>
+              <%= channel["name"] %>
+              <%= hidden_field_tag "channel_names[#{channel['id']}]", channel["name"] %>
+            </label>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= submit_tag "Create Subscriptions" %>
+<% end %>
