@@ -27,4 +27,10 @@ class SlackService
     )
     response.parsed_response["channels"]
   end
+
+  def self.get_last_message_ts(subscriptions)
+    subscriptions.each do |subscription|
+      TouchSubscriptionJob.perform_later(subscription.id)
+    end
+  end
 end

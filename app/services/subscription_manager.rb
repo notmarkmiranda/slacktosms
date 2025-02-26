@@ -18,12 +18,16 @@ class SubscriptionManager
   private
 
   def create_new_subscriptions(new_channel_ids)
-    new_channel_ids.each do |channel_id|
+    channels = new_channel_ids.map do |channel_id|
       Subscription.create(
         slack_connection: @slack_connection,
         channel_id: channel_id,
         channel_name: @channel_names[channel_id]
       )
+    end
+
+    channels.each_slice(45) do |batch|
+      SlackService.get_last_message_ts(batch)
     end
   end
 
