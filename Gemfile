@@ -3,9 +3,9 @@ source "https://rubygems.org"
 gem "rails", "~> 8.0.1"
 
 gem "bootsnap", require: false
+gem "good_job"
 gem "httparty"
 gem "importmap-rails"
-gem "stimulus-rails"
 gem "jbuilder"
 gem "kamal", require: false
 gem "propshaft"
@@ -13,8 +13,8 @@ gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 gem "skeleton-rails"
 gem "solid_cache"
-gem "solid_queue"
 gem "solid_cable"
+gem "stimulus-rails"
 gem "thruster", require: false
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
