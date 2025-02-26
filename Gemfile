@@ -14,6 +14,7 @@ gem "puma", ">= 5.0"
 gem "skeleton-rails"
 gem "solid_cache"
 gem "solid_cable"
+gem "solid_queue"
 gem "stimulus-rails"
 gem "thruster", require: false
 gem "turbo-rails"
