@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   mount GoodJob::Engine => "good_job"
 
   root "marketing#home"
+  get "consent" => "marketing#consent", as: :consent
 
   get "dashboard" => "dashboard#show", as: :dashboard
 
