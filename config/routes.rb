@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   root "marketing#home"
   get "consent" => "marketing#consent", as: :consent
+  get "privacy" => "marketing#privacy", as: :privacy
 
   get "dashboard" => "dashboard#show", as: :dashboard
 

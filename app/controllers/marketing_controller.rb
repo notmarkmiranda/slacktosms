@@ -4,4 +4,7 @@ class MarketingController < ApplicationController
 
   def consent
   end
+
+  def privacy
+  end
 end
