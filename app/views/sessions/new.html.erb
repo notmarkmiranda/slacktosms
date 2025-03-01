@@ -1,5 +1,6 @@
 <h1>Sign In or Sign Up</h1>
 
+
 <%= form_with url: login_path, method: :post, local: true do |form| %>
   <div class="row">
     <div class="three columns">
@@ -7,5 +8,36 @@
       <%= form.telephone_field :phone_number, class: "u-full-width", placeholder: "Enter your phone number" %>
     </div>
   </div>
-  <%= form.submit "Submit", class: "button-primary" %>
+
+  <div class="row">
+    <div class="twelve columns">
+      <label>
+        <%= form.check_box :consent, id: "consent-checkbox" %>
+        <span>I consent to receive SMS messages from SlackToSMS. I also acknowledge that message and data rates may apply. See our <a href="/privacy">Privacy Policy</a> for details.</span>
+      </label>
+    </div>
+  </div>
+
+  <%= form.submit "Submit", class: "button-primary", id: "submit-button", disabled: true %>
 <% end %>
+
+<style>
+  button:disabled,
+  input[type="submit"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #cccccc;
+    border-color: #cccccc;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const consentCheckbox = document.getElementById('consent-checkbox');
+    const submitButton = document.getElementById('submit-button');
+
+    consentCheckbox.addEventListener('change', function() {
+      submitButton.disabled = !this.checked;
+    });
+  });
+</script>
