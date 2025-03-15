@@ -11,7 +11,7 @@ gem "kamal", require: false
 gem "propshaft"
 gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
-gem "skeleton-rails"
+gem "signalwire"
 gem "solid_cache"
 gem "solid_cable"
 gem "solid_queue"

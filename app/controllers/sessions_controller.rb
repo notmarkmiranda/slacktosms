@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
       puts "*" * 100
       puts user.verification_code
       puts "*" * 100
+      SignalWireService.new.send_sms(to: user.phone_number, from: ENV["SIGNALWIRE_FROM_NUMBER"], body: "Your verification code is #{user.verification_code}")
       redirect_to verify_token_path(token: generate_secure_token(user)), notice: "Verification code sent to #{user.phone_number}"
     else
       redirect_to new_user_session_path, alert: "Something went wrong."
